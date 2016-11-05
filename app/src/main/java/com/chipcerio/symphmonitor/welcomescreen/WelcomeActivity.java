@@ -12,6 +12,7 @@ import android.widget.EditText;
 
 import com.chipcerio.symphmonitor.R;
 import com.chipcerio.symphmonitor.secondScreen.SecondScreenActivity;
+import com.chipcerio.symphmonitor.secondscreensamp.EmployeesSampActivity;
 
 public class WelcomeActivity extends AppCompatActivity implements WelcomeContract.View {
 
@@ -53,7 +54,7 @@ public class WelcomeActivity extends AppCompatActivity implements WelcomeContrac
 
     @Override
     public void startNextActivity(String name) {
-        Intent secondActivityIntent = new Intent(this, SecondScreenActivity.class);
+        Intent secondActivityIntent = new Intent(this, EmployeesSampActivity.class);
         secondActivityIntent.putExtra(EXTRA_NAME, name);
         startActivity(secondActivityIntent);
     }

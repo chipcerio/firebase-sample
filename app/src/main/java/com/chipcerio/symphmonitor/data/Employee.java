@@ -6,6 +6,9 @@ import com.google.firebase.database.IgnoreExtraProperties;
 public class Employee {
     private String fullname;
 
+    public Employee() {
+    }
+
     public Employee(String fullname) {
         this.fullname = fullname;
     }
