@@ -22,7 +22,7 @@ public class SymphMonitorRepositoryTest {
     private SymphMonitorDataSource mFirebaseDataSource;
 
     @Mock
-    private SymphMonitorDataSource.AllPresentCallback mAllPresentCallback;
+    private SymphMonitorDataSource.SetEmployeePresentCallback mSetEmployeePresentCallback;
 
     @Before
     public void setUp() throws Exception {
@@ -35,16 +35,10 @@ public class SymphMonitorRepositoryTest {
     }
 
     @Test
-    public void getPresentFromFirebaseDataSource() throws Exception {
-        mSymphMonitorRepository.getPresent(mAllPresentCallback);
-        verify(mFirebaseDataSource).getPresent(any(SymphMonitorDataSource.AllPresentCallback.class));
-    }
-
-    @Test
     public void setThisEmployeeAsPresentToFirebaseDataSource() throws Exception {
         Employee employee = new Employee("Arth Limchiu");
 
-        mSymphMonitorRepository.setEmployeeAsPresent(employee);
-        verify(mFirebaseDataSource).setEmployeeAsPresent(eq(employee));
+        mSymphMonitorRepository.setEmployeeAsPresent(employee, mSetEmployeePresentCallback);
+        verify(mFirebaseDataSource).setEmployeeAsPresent(eq(employee), any(SymphMonitorDataSource.SetEmployeePresentCallback.class));
     }
 }

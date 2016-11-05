@@ -1,22 +1,19 @@
 package com.chipcerio.symphmonitor.data.source;
 
 import com.chipcerio.symphmonitor.data.Employee;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
 
-import java.util.List;
-
-/**
- * Created by clariceann on 05/11/2016.
- */
 public interface SymphMonitorDataSource {
 
-    interface AllPresentCallback {
-
-        void onPresentLoaded(List<Employee> employees);
-        void onDataNotAvailable();
-
+    /*  https://firebase.google.com/docs/reference/android/com/google/firebase/database/DatabaseReference.CompletionListener
+        This method will be triggered when the operation has either succeeded or failed.
+        If it has failed, an error will be given.
+        If it has succeeded, the error will be null
+     */
+    interface SetEmployeePresentCallback {
+        void onComplete(DatabaseError error, DatabaseReference ref);
     }
 
-    void getPresent(AllPresentCallback mAllPresentCallback);
-
-    void setEmployeeAsPresent(Employee employee);
+    void setEmployeeAsPresent(Employee employee, SetEmployeePresentCallback mEmployeePresentCallback);
 }

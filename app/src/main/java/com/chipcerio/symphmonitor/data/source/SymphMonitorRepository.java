@@ -1,18 +1,14 @@
 package com.chipcerio.symphmonitor.data.source;
 
 import com.chipcerio.symphmonitor.data.Employee;
-
-import java.util.List;
-
-/**
- * Created by clariceann on 05/11/2016.
- */
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
 
 public class SymphMonitorRepository implements SymphMonitorDataSource {
     private static SymphMonitorRepository INSTANCE = null;
     private final SymphMonitorDataSource mFirebaseDataSource;
 
-    public SymphMonitorRepository(SymphMonitorDataSource mFirebaseDataSource) {
+    private SymphMonitorRepository(SymphMonitorDataSource mFirebaseDataSource) {
         this.mFirebaseDataSource = mFirebaseDataSource;
     }
 
@@ -28,22 +24,12 @@ public class SymphMonitorRepository implements SymphMonitorDataSource {
     }
 
     @Override
-    public void getPresent(final AllPresentCallback mAllPresentCallback) {
-        mFirebaseDataSource.getPresent(new AllPresentCallback() {
+    public void setEmployeeAsPresent(Employee employee, final SetEmployeePresentCallback mEmployeePresentCallback) {
+        mFirebaseDataSource.setEmployeeAsPresent(employee, new SetEmployeePresentCallback() {
             @Override
-            public void onPresentLoaded(List<Employee> employees) {
-                mAllPresentCallback.onPresentLoaded(employees);
-            }
-
-            @Override
-            public void onDataNotAvailable() {
-                mAllPresentCallback.onDataNotAvailable();
+            public void onComplete(DatabaseError error, DatabaseReference ref) {
+                mEmployeePresentCallback.onComplete(error, ref);
             }
         });
-    }
-
-    @Override
-    public void setEmployeeAsPresent(Employee employee) {
-        mFirebaseDataSource.setEmployeeAsPresent(employee);
     }
 }

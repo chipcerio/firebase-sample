@@ -1,10 +1,13 @@
 package com.chipcerio.symphmonitor.data;
 
-/**
- * Created by clariceann on 05/11/2016.
- */
+import com.google.firebase.database.IgnoreExtraProperties;
+
+@IgnoreExtraProperties
 public class Employee {
     private String fullname;
+
+    public Employee() {
+    }
 
     public Employee(String fullname) {
         this.fullname = fullname;
