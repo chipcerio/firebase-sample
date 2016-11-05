@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "835358839404",
+    "firebase_url": "https://symph-monitor-74910.firebaseio.com",
+    "project_id": "symph-monitor-74910",
+    "storage_bucket": "symph-monitor-74910.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:835358839404:android:91ee8e029aafc06b",
+        "android_client_info": {
+          "package_name": "com.chipcerio.symphmonitor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "835358839404-s9aeid9onj1fqemgkca7kvvsqgr25bk8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.chipcerio.symphmonitor",
+            "certificate_hash": "17DE7C5D01AA3D349FD40761308B6C4B5C6074B7"
+          }
+        },
+        {
+          "client_id": "835358839404-448dsjf3o7n8jucfl33tt5nu07qpiflr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBhQLVByljF5aUwKOyaVYBdLOSt2ZMOrCQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "835358839404-448dsjf3o7n8jucfl33tt5nu07qpiflr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
